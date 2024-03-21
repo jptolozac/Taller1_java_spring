@@ -28,6 +28,11 @@ public class ServletLogin extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Usuario> usuarios = ServletRegistro.getUsuarios();
         PrintWriter out = resp.getWriter();
+        if(usuarios == null){
+            out.println("No se encontró el usuario");
+            resp.setStatus(401);
+            return;
+        }
         Boolean sesionEncontrada = false;
         for(Usuario usuario : usuarios){
             String usuarioReq = req.getParameter("usuario");
@@ -40,8 +45,10 @@ public class ServletLogin extends HttpServlet{
                 resp.getWriter().println("Sesion iniciada con éxito");
             }
         }
-        if(!sesionEncontrada)
+        if(!sesionEncontrada){
             out.println("No se encontró el usuario");
+            resp.setStatus(401);
+        }
     }
 
     @Override
