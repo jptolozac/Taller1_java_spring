@@ -1,0 +1,4 @@
+POST: http://localhost:8080/login-1.0-SNAPSHOT/registro
+POST: http://localhost:8080/login-1.0-SNAPSHOT/inicioSesion
+GET: http://localhost:8080/login-1.0-SNAPSHOT/listar
+DELETE: http://localhost:8080/login-1.0-SNAPSHOT/eliminar 
