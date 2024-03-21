@@ -53,11 +53,8 @@ public class ServletEliminar extends HttpServlet{
             for(Usuario usu : usuarios){
                 if(usu.equals(usuarioActual)){
                     usuarios.remove(usu);
+                    break;
                 }
-                System.out.println(usu.getUsuario());
-            }
-            for(Usuario usu : usuarios){
-                out.println(usu.getUsuario());
             }
             ServletLogin.setSesionActual(null);
             out.println("Usuario eliminado con éxito");
